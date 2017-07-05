@@ -28,7 +28,7 @@ jQuery(function($) {'use strict',
 			itemSelector : '.portfolio-item',
 			layoutMode : 'fitRows'
 		});
-		
+
 		$portfolio_selectors.on('click', function(){
 			$portfolio_selectors.removeClass('active');
 			$(this).addClass('active');
@@ -54,17 +54,25 @@ jQuery(function($) {'use strict',
 		});
 	});
 
-	
+
 	//goto top
 	$('.gototop').click(function(event) {
 		event.preventDefault();
 		$('html, body').animate({
 			scrollTop: $("body").offset().top
 		}, 500);
-	});	
+	});
 
 	//Pretty Photo
 	$("a[rel^='prettyPhoto']").prettyPhoto({
 		social_tools: false
-	});	
+	});
 });
+
+	//highlight
+	var number_of_pages = 5;
+	for (var highlight_position = 0; highlight_position < number_of_pages; highlight_position++){
+		if ($('#highlight_page_id').text() == highlight_position){
+			$('#highlight_index'+highlight_position).addClass('active');
+		}
+	};
